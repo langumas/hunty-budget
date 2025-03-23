@@ -4,7 +4,7 @@ import { Car, Loader2, Plus } from "lucide-react";
 
 import { useNewAccount } from "@/features/accounts/hooks/use-new-account";
 import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
-import { useBulkDeleteAccounts } from "@/features/accounts/api/use-bulk-delete";
+import { useBulkDeleteAccounts } from "@/features/accounts/api/use-bulk-delete-accounts";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -50,7 +50,7 @@ const AccountsPage = () => {
             <Card className="border-none drop-shadow-sm">
                 <CardHeader className="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
                     <CardTitle className="text-xl line-clamp-1">
-                        Pagina de cuentas
+                        Página de cuentas
                     </CardTitle>
                     <Button onClick={newAccount.onOpen} size="sm">
                         <Plus className="size-4 mr-2"/>

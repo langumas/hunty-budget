@@ -23,6 +23,7 @@
             toast.success("Cuenta borrada")
             queryClient.invalidateQueries({ queryKey: ["account", { id }] });
             queryClient.invalidateQueries({ queryKey: ["accounts"] });
+            queryClient.invalidateQueries({ queryKey: ["transactions"] });
         },
         onError: () => {
             toast.error("fallo al borrar la cuenta :(")

@@ -21,7 +21,7 @@ type Props = {
 export const Actions = ({ id }: Props) => {
     const [ConfirmDialog, confirm] = useConfirm(
         "Estas seguro?",
-        "Estas a punto de borrar esta transaccion."
+        "Estas a punto de borrar esta cuenta."
     )
     const deleteMutation = useDeleteAccount(id);
     const { onOpen } = useOpenAccount();
