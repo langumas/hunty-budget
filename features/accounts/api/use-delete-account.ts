@@ -24,6 +24,7 @@
             queryClient.invalidateQueries({ queryKey: ["account", { id }] });
             queryClient.invalidateQueries({ queryKey: ["accounts"] });
             queryClient.invalidateQueries({ queryKey: ["transactions"] });
+            queryClient.invalidateQueries({ queryKey: ["summary"] });
         },
         onError: () => {
             toast.error("fallo al borrar la cuenta :(")

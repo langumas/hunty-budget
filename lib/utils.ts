@@ -1,6 +1,6 @@
 import { twMerge } from "tailwind-merge"
 import { clsx, type ClassValue } from "clsx"
-import { subDays, eachDayOfInterval, isSameDay, format } from "date-fns";
+import { subDays, eachDayOfInterval, isSameDay, format, isValid, parseISO } from "date-fns";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -72,25 +72,29 @@ type Period = {
   to: string | Date | undefined;
 };
 
+function toValidDate(date: string | Date | undefined, fallback: Date): Date {
+  if (typeof date === "string") {
+    const parsedDate = parseISO(date);
+    return isValid(parsedDate) ? parsedDate : fallback;
+  }
+  return date instanceof Date && isValid(date) ? date : fallback;
+}
+
 export function formatDateRange(period?: Period) {
   const defaultTo = new Date();
   const defaultFrom = subDays(defaultTo, 30);
 
-  if (!period?.from) {
-    return `${format(defaultFrom, "LLL dd")} - ${format(
-      defaultTo,
-      "LLL dd, y"
-    )}`;
+  const fromDate = toValidDate(period?.from, defaultFrom);
+  const toDate = toValidDate(period?.to, defaultTo);
+
+  if (period?.from && period?.to) {
+    return `${format(fromDate, "LLL dd")} - ${format(toDate, "LLL dd, y")}`;
   }
 
-  if (period?.to) {
-    return `${format(period.from, "LLL dd")} - ${format(
-      period.to,
-      "LLL dd, y"
-    )}`;
+  if (period?.from) {
+    return format(fromDate, "LLL dd, y");
   }
-
-  return format(period.from, "LLL dd, y");
+  return `${format(defaultFrom, "LLL dd")} - ${format(defaultTo, "LLL dd, y")}`;
 }
 
 export function formatPercentage(
