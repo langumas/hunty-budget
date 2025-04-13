@@ -127,7 +127,7 @@ const app = new Hono()
         const finalCategories = topCategories;
 
         if (otherCategories.length > 0)
-                finalCategories.push({ name: "Other", value: otherSum });
+                finalCategories.push({ name: "Otros", value: otherSum });
 
         const activeDays = await db
             .select({

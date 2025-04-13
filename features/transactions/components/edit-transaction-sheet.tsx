@@ -6,9 +6,6 @@ import { useOpenTransaction } from "@/features/transactions/hooks/use-open-trans
 import { useEditTransaction } from "@/features/transactions/api/use-edit-transaction";
 import { useDeleteTransaction } from "@/features/transactions/api/use-delete-transaction";
 
-import { useNewTransaction } from "@/features/transactions/hooks/use-new-transaction";
-import { useCreateTransaction } from "@/features/transactions/api/use-create-transaction";
-
 import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
 import { useCreateAccount } from "@/features/accounts/api/use-create-account";
 

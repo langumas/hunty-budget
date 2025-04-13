@@ -8,7 +8,7 @@ export default function Page() {
             <div className="h-full lg:flex flex-col items-center justify-center px-4">
                 <div className="text-center space-y-4 pt-16">
                     <h1 className="font-bold text-3xl text-black">
-                        Welcome back
+                        Bienvenido
                     </h1>
                     <p className="font-bold text-base text-black">
                         Ingresa o crea una cuenta.
